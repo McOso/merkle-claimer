@@ -11,9 +11,7 @@ export default function Home() {
 
   if (!show && account && chainId !== ChainId.Mainnet && chainId !== ChainId.Rinkeby){
     setShow(true)
-  }else if (show && (chainId === ChainId.Mainnet || chainId === ChainId.Rinkeby)){
-    setShow(false)
-  }else if (show && !account){
+  }else if (show && (chainId === ChainId.Mainnet || chainId === ChainId.Rinkeby) || (show && !account)){
     setShow(false)
   }
 
