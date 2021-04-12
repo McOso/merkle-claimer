@@ -30,3 +30,8 @@
     height: 1em;
     margin-left: 10px;
   }
+
+body,
+.bg-black{
+  background-color: black;
+}

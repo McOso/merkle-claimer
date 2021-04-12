@@ -11,8 +11,7 @@ export default function Home() {
   return (
     <Container className="md-container">
       <Head>
-        <title>Merkle Claimer</title>
-        <link rel="icon" href="/favicon-32x32.png" />
+        <title>PT Merkle Claimer</title>
       </Head>
       <Container>
         <ToastContainer
@@ -26,8 +25,8 @@ export default function Home() {
           draggable
           pauseOnHover
         />
-        <h1>
-          Welcome to Merkle Claimer!
+        <h1 className="text-light">
+          PT Merkle Claimer
         </h1>
         {account ? (
               <Button onClick={() => deactivate()}>Disconnect</Button>
