@@ -1,12 +1,21 @@
 import Head from 'next/head'
-import { Container, Row, Card, Button } from 'react-bootstrap'
-import React from 'react'
-import { useEthers } from '@usedapp/core'
+import { Container, Row, Card, Button, Alert } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { ChainId, useEthers } from '@usedapp/core'
 import { Claim } from '../lib/Claim'
 import { ToastContainer } from 'react-toastify';
 
 export default function Home() {
-  const { activateBrowserWallet, deactivate, account } = useEthers()
+  const [show, setShow] = useState(false)
+  const { activateBrowserWallet, deactivate, account, chainId } = useEthers()
+
+  if (!show && account && chainId !== ChainId.Mainnet && chainId !== ChainId.Rinkeby){
+    setShow(true)
+  }else if (show && (chainId === ChainId.Mainnet || chainId === ChainId.Rinkeby)){
+    setShow(false)
+  }else if (show && !account){
+    setShow(false)
+  }
 
   return (
     <Container className="md-container">
@@ -25,8 +34,17 @@ export default function Home() {
           draggable
           pauseOnHover
         />
+        {show ? (
+            <Alert variant="danger">
+              <Alert.Heading>Unsupported Network</Alert.Heading>
+              <p>
+                Please connect to Mainnet or Rinkeby.
+              </p>
+            </Alert>
+          ) : null
+        }
         <h1 className="text-light">
-          PT Merkle Claimer
+          Merkle Claimer
         </h1>
         {account ? (
               <Button onClick={() => deactivate()}>Disconnect</Button>
