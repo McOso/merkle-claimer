@@ -1,9 +1,10 @@
 import Head from 'next/head'
-import { Container, Row, Card, Button, Alert } from 'react-bootstrap'
+import { Container, Row, Card, Button, Alert, Col, Image } from 'react-bootstrap'
 import React, { useState } from 'react'
 import { ChainId, useEthers } from '@usedapp/core'
 import { Claim } from '../lib/Claim'
 import { ToastContainer } from 'react-toastify';
+import PTLogo from '../assets/res/pt-logo.png'
 
 export default function Home() {
   const [show, setShow] = useState(false)
@@ -41,14 +42,25 @@ export default function Home() {
             </Alert>
           ) : null
         }
-        <h1 className="text-light">
-          Merkle Claimer
-        </h1>
-        {account ? (
-              <Button onClick={() => deactivate()}>Disconnect</Button>
-            ) : (
-              <Button variant="secondary" onClick={() => activateBrowserWallet()}>Connect</Button>
-            )}
+        <Row>
+          <Col>
+            <h1 className="text-light">
+              Retro Airdrop Claimer
+            </h1>
+          </Col>
+          <Col md={3} xs={6}>
+            <Image src={PTLogo} fluid/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            {account ? (
+                <Button onClick={() => deactivate()}>Disconnect</Button>
+              ) : (
+                <Button variant="secondary" onClick={() => activateBrowserWallet()}>Connect</Button>
+              )}
+          </Col>
+        </Row>
         <Container>
           <Row className="justify-content-md-between">
             <Card className="lg-card">
