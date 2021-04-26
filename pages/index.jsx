@@ -75,6 +75,7 @@ export default function Home() {
                     <Button variant="secondary" block onClick={() => activateBrowserWallet()}>Connect</Button>
                     )}
               </Card.Body>
+              <Card.Footer>Or claim on etherscan: <a href="https://github.com/McOso/merkle-distributor#how-to-claim---mainnet" target="_blank">How to claim on etherscan</a></Card.Footer>
             </Card>
           </Row>
         </Container>

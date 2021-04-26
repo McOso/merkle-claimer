@@ -1,5 +1,5 @@
 export const merkleDistibutor_address_rinkeby = '0x2aF8548837180614f147F2Bcd27d4354169F4E8a';
-export const merkleDistibutor_address_mainnet = '';
+export const merkleDistibutor_address_mainnet = '0xD40720AeBCc5506e514CC2fF1E4a7E21C3cb80a4';
 export const merkleDistibutor_abi = [
     {
       "inputs": [
